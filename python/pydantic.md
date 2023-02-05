@@ -1,5 +1,5 @@
-# Pydantic
--------------------------------------------
+# Pydantic: Data validation using python type annotations
+----------------------------------------------------------
 
 [Pydantic](https://docs.pydantic.dev) validates and converts convertable values to corrent data type and raise error if not convertable, using given type hints. 
 
