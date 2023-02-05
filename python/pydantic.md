@@ -1,7 +1,7 @@
-# [Pydantic](https://docs.pydantic.dev)
+# Pydantic
 -------------------------------------------
 
-Pydantic validates and converts convertable values to corrent data type and raise error if not convertable, using given type hints. 
+[Pydantic](https://docs.pydantic.dev) validates and converts convertable values to corrent data type and raise error if not convertable, using given type hints. 
 
 **IMP**: [config](https://docs.pydantic.dev/usage/model_config/)
 
