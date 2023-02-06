@@ -1,84 +1,74 @@
 from datetime import timezone
-
+import re
 import pathlib
 import sys
-import re
-import os
 
 import git
 
-root = pathlib.Path(__file__).parent.resolve()
 
-index_re = re.compile(r"<!\-\- index starts \-\->.*<!\-\- index ends \-\->", re.DOTALL)
-count_re = re.compile(r"<!\-\- count starts \-\->.*<!\-\- count ends \-\->", re.DOTALL)
+root_path = pathlib.Path(__file__).parent.resolve()
 
-COUNT_TEMPLATE = "<!-- count starts -->{}<!-- count ends -->"
+index_pattern = re.compile(r"<!\-\- index starts \-\->.*<!\-\- index ends \-\->", re.DOTALL)
+count_pattern = re.compile(r"<!\-\- count starts \-\->.*<!\-\- count ends \-\->", re.DOTALL)
+
+count_template = "<!-- count starts -->{}<!-- count ends -->"
 
 
-def created_changed_times(repo_path, ref="main"):
-    times = {}
-    print(pathlib.Path(__file__))
-    print(repo_path)
+def get_file_created_and_updated_times(repo_path, ref="main"):
+    file_times = {}
     repo = git.Repo(repo_path, odbt=git.GitDB)
-    commits = reversed(list(repo.iter_commits(ref)))
+    commits = list(repo.iter_commits(ref))[::-1]
     for commit in commits:
-        dt = commit.committed_datetime
+        commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
-        for filepath in affected_files:
-            if filepath not in times:
-                times[filepath] = {
-                    "created": dt.isoformat(),
-                    "created_utc": dt.astimezone(timezone.utc).isoformat(),
+        for file_path in affected_files:
+            if file_path not in file_times:
+                file_times[file_path] = {
+                    "created": commit_time.isoformat(),
+                    "created_utc": commit_time.astimezone(timezone.utc).isoformat(),
                 }
-            times[filepath].update(
+            file_times[file_path].update(
                 {
-                    "updated": dt.isoformat(),
-                    "updated_utc": dt.astimezone(timezone.utc).isoformat(),
+                    "updated": commit_time.isoformat(),
+                    "updated_utc": commit_time.astimezone(timezone.utc).isoformat(),
                 }
             )
-    return times
+    return file_times
 
 
-def recreate_readme(repo_path):
-    all_times = created_changed_times(repo_path)
+def regenerate_readme(repo_path):
+    file_times = get_file_created_and_updated_times(repo_path)
 
     index = ["<!-- index starts -->"]
 
-    for folder in root.glob("*/"):
+    for folder in root_path.glob("*/"):
         if not folder.is_dir() or folder.stem.startswith("."):
             continue
 
-        path = str(folder.relative_to(root))
-        topic = path.split("/", maxsplit=1)[0]
+        folder_path = str(folder.relative_to(root_path))
+        topic = folder_path.split("/", maxsplit=1)[0]
 
         index.append(f"## {topic}\n")
 
-        for filepath in root.glob(f"{topic}/*.md"):
-            url = f"https://github.com/Azanul/til/blob/main/{path}"
+        for file_path in root_path.glob(f"{topic}/*.md"):
+            file_url = f"https://github.com/Azanul/til/blob/main/{file_path}"
 
-            fp = filepath.open()
-            title = fp.readline().lstrip("#").strip()
-            date = all_times[str(filepath.relative_to(root))]["created_utc"].split("T")[0]
+            with file_path.open() as f:
+                title = f.readline().lstrip("#").strip()
+                date = file_times[str(file_path.relative_to(root_path))]["created_utc"].split("T")[0]
 
-            index.append(
-                f"* [{title}]({url}) - {date}"
-            )
-
-
-        # # Do we need to render the markdown?
-        # path_slug = path.replace("/", "_")
+            index.append(f"* [{title}]({file_url}) - {date}")
 
     index.append("<!-- index ends -->")
-
+    readme = root_path / "README.md"
+    index_txt = "\n".join(index).strip()
+    readme_contents = readme.open().read()
+    rewritten = index_pattern.sub(index_txt, readme_contents)
     if "--rewrite" in sys.argv:
-        readme = root / "README.md"
-        index_txt = "\n".join(index).strip()
-        readme_contents = readme.open().read()
-        rewritten = index_re.sub(index_txt, readme_contents)
         readme.open("w").write(rewritten)
     else:
-        print("\n".join(index))
+        print(index_txt)
 
 
 if __name__ == "__main__":
-    recreate_readme(root)
+    regenerate_readme(root_path)
