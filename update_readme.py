@@ -60,9 +60,11 @@ def regenerate_readme(repo_path):
             index.append(f"* [{title}]({file_url}) - {date}")
 
     index.append("<!-- index ends -->")
+
     readme = root_path / "README.md"
-    index_txt = "\n".join(index).strip()
     readme_contents = readme.open().read()
+
+    index_txt = "\n".join(index).strip()
     rewritten = index_pattern.sub(index_txt, readme_contents)
     if "--rewrite" in sys.argv:
         readme.open("w").write(rewritten)
