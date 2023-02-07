@@ -21,7 +21,7 @@ jobs:
     - name: Checkout profile repo
       uses: actions/checkout@v3
       with:
-        token ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ secrets.ACCESS_TOKEN }}
         repository: Azanul/Azanul
         path: Azanul
 
