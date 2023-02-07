@@ -18,14 +18,14 @@ jobs:
         fetch-depth: 0
         path: main
 
-    # - name: Checkout profile repo
-    #   uses: actions/checkout@v3
-    #   with:
-    #     repository: Azanul/Azanul
-    #     path: profile
+    - name: Checkout profile repo
+      uses: actions/checkout@v3
+      with:
+        repository: Azanul/Azanul
+        path: Azanul
 
-    - name: Clone profile repository
-      run: git clone https://github.com/Azanul/Azanul.git
+    # - name: Clone profile repository
+    #   run: git clone https://github.com/Azanul/Azanul.git
 
     - uses: actions/setup-python@v4
       with:
