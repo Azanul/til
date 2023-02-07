@@ -4,6 +4,7 @@ My regular TIL journal
 <!-- index starts -->
 ## git
 
+* [How to remove commits from git history](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/git/delete-history.md) - 2023-02-07
 * [How to skip hooks & checks when committing or pushing](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/git/no-verify.md) - 2023-02-06
 ## python
 
