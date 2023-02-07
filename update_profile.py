@@ -65,7 +65,7 @@ def update_tils(repo_path):
     readme = profile_path / "README.md"
     readme_contents = readme.open().read()
 
-    tils_txt = "\n".join(tils).strip()
+    tils_txt = "\n\n".join(tils).strip()
     rewritten = tils_pattern.sub(tils_txt, readme_contents)
     if "--rewrite" in sys.argv:
         readme.open("w").write(rewritten)
