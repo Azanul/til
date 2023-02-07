@@ -9,4 +9,7 @@ My regular TIL journal
 ## python
 
 * [Pydantic: Data validation using python type annotations](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/pydantic.md) - 2023-02-04
+## arch
+
+* [How to set chaotic AUR for pacman](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/arch/chaotic-aur-set.md) - 2023-02-07
 <!-- index ends -->
