@@ -15,5 +15,6 @@ My regular TIL journal
 * [How to install enumer](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/go/enumer.md) - 2023-02-08
 ## arch
 
+* [Fake update discord version](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/arch/fake-discord-version.md) - 2023-02-08
 * [How to set chaotic AUR for pacman](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/arch/chaotic-aur-set.md) - 2023-02-07
 <!-- index ends -->
