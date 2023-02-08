@@ -9,6 +9,7 @@ My regular TIL journal
 ## python
 
 * [Pydantic: Data validation using python type annotations](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/pydantic.md) - 2023-02-04
+* [Speed up python by 30%](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/speed-up.md) - 2023-02-08
 ## go
 
 * [How to install enumer](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/go/enumer.md) - 2023-02-08
