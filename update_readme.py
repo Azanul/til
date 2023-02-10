@@ -41,7 +41,7 @@ def regenerate_readme(repo_path):
 
     index = ["<!-- index starts -->"]
 
-    for folder in root_path.glob("*/"):
+    for folder in sorted(root_path.glob("*/")):
         if not folder.is_dir() or folder.stem.startswith("."):
             continue
 
