@@ -44,7 +44,7 @@ def update_tils(repo_path):
     tils = ["<!-- tils starts -->"]
     print(til_path)
 
-    for file in til_path.glob("*/*.md"):
+    for file in sorted(til_path.glob("*/*.md")):
         print(file, file.is_dir(), file.stem.startswith("."))
         if file.stem.startswith("."):
             continue
