@@ -22,6 +22,9 @@ My regular TIL journal
 ## kubernetes
 
 * [How to set namespace](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/kubernetes/set-namespace.md) - 2023-02-22
+## linux
+
+* [How to download a file using terminal](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/linux/download-with-terminal.md) - 2023-02-25
 ## python
 
 * [Pydantic: Data validation using python type annotations](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/pydantic.md) - 2023-02-04
