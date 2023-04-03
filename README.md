@@ -27,4 +27,7 @@ My regular TIL journal
 
 * [Speed up python by 30%](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/speed-up.md) - 2023-02-08
 * [Pydantic: Data validation using python type annotations](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/pydantic.md) - 2023-02-04
+## unix
+
+* [How to download a file using terminal](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/unix/download-with-terminal.md) - 2023-04-03
 <!-- index ends -->
