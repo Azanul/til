@@ -23,9 +23,6 @@ My regular TIL journal
 ## kubernetes
 
 * [How to set namespace](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/kubernetes/set-namespace.md) - 2023-02-22
-## linux
-
-* [How to download a file using terminal](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/linux/download-with-terminal.md) - 2023-02-25
 ## python
 
 * [Speed up python by 30%](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/speed-up.md) - 2023-02-08
