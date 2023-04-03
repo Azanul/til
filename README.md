@@ -29,5 +29,6 @@ My regular TIL journal
 * [Pydantic: Data validation using python type annotations](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/python/pydantic.md) - 2023-02-04
 ## unix
 
+* [How to forward incoming requests to a container port to host port](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/unix/reverse-port-forward.md) - 2023-04-03
 * [How to download a file using terminal](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/unix/download-with-terminal.md) - 2023-04-03
 <!-- index ends -->
