@@ -5,22 +5,19 @@ import sys
 
 import git
 
+limit = 8
 
 root_path = pathlib.Path(__file__).parent.parent.resolve()
 til_path = root_path / 'main'
 profile_path = root_path / 'Azanul'
 
-blogs_pattern = re.compile(r"<!\-\- blogs starts \-\->.*<!\-\- blogs ends \-\->", re.DOTALL)
 tils_pattern = re.compile(r"<!\-\- tils starts \-\->.*<!\-\- tils ends \-\->", re.DOTALL)
-
-count_template = "<!-- count starts -->{}<!-- count ends -->"
-
 
 def get_file_created_and_updated_times(ref="main"):
     file_times = {}
     repo = git.Repo(til_path, odbt=git.GitDB)
     commits = list(repo.iter_commits(ref))[::-1]
-    for commit in commits:
+    for commit in commits[:limit]:
         commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
         for file_path in affected_files:
@@ -46,7 +43,7 @@ def update_tils(repo_path):
 
     for file in sorted(til_path.glob("*/*.md")):
         print(file, file.is_dir(), file.stem.startswith("."))
-        if file.stem.startswith("."):
+        if file.stem.startswith(".") or str(file.relative_to(til_path)) not in file_times:
             continue
 
         file_path = str(file.relative_to(til_path))
