@@ -40,12 +40,13 @@ def get_file_created_and_updated_times(ref="main"):
 
 def update_tils(repo_path):
     file_times = get_file_created_and_updated_times()
+    print(file_times)
 
     tils = ["<!-- tils starts -->"]
     print(til_path)
 
     for file in sorted(til_path.glob("*/*.md")):
-        print(file, file.is_dir(), file.stem.startswith("."))
+        print(file, file.is_dir(), file.stem.startswith("."), str(file.relative_to(til_path)) not in file_times)
         if file.stem.startswith(".") or str(file.relative_to(til_path)) not in file_times:
             continue
 
