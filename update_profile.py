@@ -21,7 +21,7 @@ def get_file_created_and_updated_times(ref="main"):
         commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
         for file_path in affected_files:
-            if file_path.ends_with("README.md") or not file_path.ends_with(".md"):
+            if file_path.endswith("README.md") or not file_path.endswith(".md"):
                 continue
             if file_path not in file_times and n_files < limit:
                 file_times[file_path] = {
