@@ -14,14 +14,15 @@ profile_path = root_path / 'Azanul'
 tils_pattern = re.compile(r"<!\-\- tils starts \-\->.*<!\-\- tils ends \-\->", re.DOTALL)
 
 def get_file_created_and_updated_times(ref="main"):
-    file_times = {}
+    file_times, n_files = {}, 0
     repo = git.Repo(til_path, odbt=git.GitDB)
     commits = list(repo.iter_commits(ref))[::-1]
     for commit in commits:
         commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
-        n_files = 0
         for file_path in affected_files:
+            if file_path.ends_with("README.md") or not file_path.ends_with(".md"):
+                continue
             if file_path not in file_times and n_files < limit:
                 file_times[file_path] = {
                     "created": commit_time.isoformat(),
