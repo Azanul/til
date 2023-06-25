@@ -17,7 +17,8 @@ def get_file_created_and_updated_times(ref="main"):
     file_times = {}
     repo = git.Repo(til_path, odbt=git.GitDB)
     commits = list(repo.iter_commits(ref))[::-1]
-    for commit in commits[:limit]:
+    for _ in range(limit):
+        commit = next(commits)
         commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
         for file_path in affected_files:
