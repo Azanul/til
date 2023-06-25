@@ -5,7 +5,7 @@ import sys
 
 import git
 
-limit = 8
+limit = 10
 
 root_path = pathlib.Path(__file__).parent.parent.resolve()
 til_path = root_path / 'main'
