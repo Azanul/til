@@ -17,22 +17,24 @@ def get_file_created_and_updated_times(ref="main"):
     file_times = {}
     repo = git.Repo(til_path, odbt=git.GitDB)
     commits = list(repo.iter_commits(ref))[::-1]
-    for _ in range(limit):
-        commit = next(commits)
+    for commit in commits:
         commit_time = commit.committed_datetime
         affected_files = list(commit.stats.files.keys())
+        n_files = 0
         for file_path in affected_files:
-            if file_path not in file_times:
+            if file_path not in file_times and n_files < limit:
                 file_times[file_path] = {
                     "created": commit_time.isoformat(),
                     "created_utc": commit_time.astimezone(timezone.utc).isoformat(),
                 }
-            file_times[file_path].update(
-                {
-                    "updated": commit_time.isoformat(),
-                    "updated_utc": commit_time.astimezone(timezone.utc).isoformat(),
-                }
-            )
+                n_files += 1
+            if file_path in file_times:
+                file_times[file_path].update(
+                    {
+                        "updated": commit_time.isoformat(),
+                        "updated_utc": commit_time.astimezone(timezone.utc).isoformat(),
+                    }
+                )
     return file_times
 
 
