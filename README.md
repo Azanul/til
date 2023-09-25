@@ -22,7 +22,7 @@ My regular TIL journal
 * [How to install enumer](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/go/enumer.md) - 2023-02-08
 ## js
 
-* [```js](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/js/scrape_images.md) - 2023-09-24
+* [Download all images from a website](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/js/scrape_images.md) - 2023-09-24
 ## kubernetes
 
 * [How to set namespace](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/kubernetes/set-namespace.md) - 2023-02-22
