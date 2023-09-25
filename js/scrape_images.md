@@ -1,3 +1,6 @@
+# Download all images from a website
+-------------------------------------
+
 ```js
 async function downloadAndZipImages(images) {
   const zip = new JSZip();
