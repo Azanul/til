@@ -6,7 +6,7 @@
 import requests
 import json
 
-GITHUB_API_URL = "https://api.github.com/repos/tailwarden/komiser/issues"
+GITHUB_API_URL = "https://api.github.com/repos/owner/repo/issues"
 
 AWS_RESOURCES = [
     # (resource_name, service_code, metrics_link)
