@@ -23,6 +23,7 @@ My regular TIL journal
 ## github
 
 * [Create GitHub issues from a template](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/github/issue-creation-script.md) - 2023-10-04
+* [Add label to GitHub issues conditionally](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/github/issue-labelling-script.md) - 2023-10-04
 ## go
 
 * [Get all aws service codes](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/go/aws-service-codes.md) - 2023-09-29
