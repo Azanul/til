@@ -1,4 +1,4 @@
-## Create GitHub issues from a template
+# Create GitHub issues from a template
 -----------------------------------------
 
 
