@@ -20,6 +20,9 @@ My regular TIL journal
 * [How to share data between jobs and workflows](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/git/artifacts.md) - 2023-02-10
 * [How to remove commits from git history](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/git/delete-history.md) - 2023-02-07
 * [How to shallow clone a git repo](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/git/shallow-clone.md) - 2023-04-03
+## github
+
+* [Create GitHub issues from a template](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/github/issue-creation-script.md) - 2023-10-04
 ## go
 
 * [Get all aws service codes](https://github.com/Azanul/til/blob/main//home/runner/work/til/til/main/go/aws-service-codes.md) - 2023-09-29
